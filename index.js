@@ -8,6 +8,7 @@ bot.commands = new discord.Collection();
 
 client.login(process.env.BOT_TOKEN);
 
+
 fs.readdir("./commands/", (err, files) => {
 
     if (err) console.log(err);
@@ -136,91 +137,91 @@ bot.on("message", async message => {
 
     }
 
-    if (command === `${prefix}dm`) {
+    // if (command === `${prefix}dm`) {
 
-        message.delete();
+    //     message.delete();
 
-        var dm = arguments.slice(1).join(' ');
-        var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-
-
-        var userEmbed = new discord.RichEmbed()
-            .setTitle("**U hebt een bericht verstuurd**")
-            .setColor("#470191")
-            .addField("Naar:", dmPerson)
-
-        message.author.send(userEmbed)
+    //     var dm = arguments.slice(1).join(' ');
+    //     var dmPerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 
-        var dmEmbed = new discord.RichEmbed()
-            .setTitle("**U hebt een bericht ontvangen van staff-leden!**")
-            .setColor("#470191")
-            .addField("Het bericht:", dm)
+    //     var userEmbed = new discord.RichEmbed()
+    //         .setTitle("**U hebt een bericht verstuurd**")
+    //         .setColor("#470191")
+    //         .addField("Naar:", dmPerson)
 
-        dmPerson.send(dmEmbed)
-
-    }
+    //     message.author.send(userEmbed)
 
 
+    //     var dmEmbed = new discord.RichEmbed()
+    //         .setTitle("**U hebt een bericht ontvangen van staff-leden!**")
+    //         .setColor("#470191")
+    //         .addField("Het bericht:", dm)
 
+    //     dmPerson.send(dmEmbed)
 
-
-    if (command === `${prefix}bot-info`) {
-
-        var botIcon = bot.user.displayAvatarURL;
-
-
-        var botEmbed = new discord.RichEmbed()
-            .setDescription("Discord Gameplay-BOT info")
-            .setColor("#2d234f")
-            .setThumbnail(botIcon)
-            .addField("Bot naam", bot.user.username)
-            .addField("Gemaakt door:", "Maiky");
+    // }
 
 
 
 
 
-        return message.channel.send(botEmbed);
+    // if (command === `${prefix}bot-info`) {
 
-    }
+    //     var botIcon = bot.user.displayAvatarURL;
 
 
-    if (command === `${prefix}server-info`) {
-
-        var icon = message.guild.iconURL;
-
-        var serverEmbed = new discord.RichEmbed()
-            .setDescription("Hier is informatie over de server.")
-            .setColor("#2d234f")
-            .setThumbnail(icon)
-            .addField("Bot naam:", bot.user.username)
-            .addField("U bent gejoined op:", message.member.joinedAt)
-            .addField("Members:", message.guild.memberCount)
-            .addField("Eigenaar:", message.guild.owner)
-            .setTitle("Server-info")
-            .setFooter("© Sizzle!-BOT");
+    //     var botEmbed = new discord.RichEmbed()
+    //         .setDescription("Discord Gameplay-BOT info")
+    //         .setColor("#2d234f")
+    //         .setThumbnail(botIcon)
+    //         .addField("Bot naam", bot.user.username)
+    //         .addField("Gemaakt door:", "Maiky");
 
 
 
 
-        return message.channel.send(serverEmbed);
-    }
 
-    if (command === `${prefix}help`) {
+    //     return message.channel.send(botEmbed);
 
-        var icon = message.guild.iconURL;
-
-        var serverEmbed = new discord.RichEmbed()
-            .setTitle("Gameplaybot commands")
-            .setDescription("Hier kun je alle commando's zien!")
-            .setColor("#59167f")
-            .addField("g!server-info", "Hiermee krijg je informatie over de server.")
-            .addField("g!bot-info", "Hiermee krijg je informatie over de Gameplay-BOT.")
+    // }
 
 
-        return message.author.send(serverEmbed);
-    }
+    // if (command === `${prefix}server-info`) {
+
+    //     var icon = message.guild.iconURL;
+
+    //     var serverEmbed = new discord.RichEmbed()
+    //         .setDescription("Hier is informatie over de server.")
+    //         .setColor("#2d234f")
+    //         .setThumbnail(icon)
+    //         .addField("Bot naam:", bot.user.username)
+    //         .addField("U bent gejoined op:", message.member.joinedAt)
+    //         .addField("Members:", message.guild.memberCount)
+    //         .addField("Eigenaar:", message.guild.owner)
+    //         .setTitle("Server-info")
+    //         .setFooter("© Sizzle!-BOT");
+
+
+
+
+    //     return message.channel.send(serverEmbed);
+    // }
+
+    // if (command === `${prefix}help`) {
+
+    //     var icon = message.guild.iconURL;
+
+    //     var serverEmbed = new discord.RichEmbed()
+    //         .setTitle("Gameplaybot commands")
+    //         .setDescription("Hier kun je alle commando's zien!")
+    //         .setColor("#59167f")
+    //         .addField("g!server-info", "Hiermee krijg je informatie over de server.")
+    //         .addField("g!bot-info", "Hiermee krijg je informatie over de Gameplay-BOT.")
+
+
+    //     return message.author.send(serverEmbed);
+    // }
 
 });
 
